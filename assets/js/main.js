@@ -1,7 +1,38 @@
+
+const hamburger = document.querySelector('.hamburger-icon');
+const closeIcon = document.querySelector('.close-icon');
+const menu = document.querySelector('.menu-wrap');
+
+// Initial state
+hamburger.classList.add('show');
+closeIcon.classList.add('hide');
+
+hamburger.addEventListener('click', () => {
+  menu.classList.add('active');
+
+  hamburger.classList.add('hide');
+  hamburger.classList.remove('show');
+
+  closeIcon.classList.add('show');
+  closeIcon.classList.remove('hide');
+});
+
+closeIcon.addEventListener('click', () => {
+  menu.classList.remove('active');
+
+  closeIcon.classList.add('hide');
+  closeIcon.classList.remove('show');
+
+  hamburger.classList.add('show');
+  hamburger.classList.remove('hide');
+});
+
+
 // slider js
 const swiper = new Swiper(".slide-wrap", {
     direction: "vertical",
     loop: true,
+    spaceBetween: 20,
     pagination: {
       el: ".swiper-pagination",
       clickable: true,
@@ -10,17 +41,34 @@ const swiper = new Swiper(".slide-wrap", {
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev",
     },
-    scrollbar: {
-      el: ".swiper-scrollbar",
-      draggable: true,       // scrollbar টেনে slide করা যাবে
-      dragSize: 50,          // scrollbar এর size
-    },
-    mousewheel: true, // mouse scroll support
+   
     autoplay: {
       delay: 3000,
       disableOnInteraction: false,
     },
   });
+
+const swiper2 = new Swiper(".slide-wrapper", {
+  direction: "horizontal",
+  loop: true,
+  slidesPerView: 1,
+  spaceBetween: 30,
+  // autoplay: {
+  //   delay: 3000,
+  //   disableOnInteraction: false,
+  // },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+    type: "bullets", // Up top indicator
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+});
+
+
 
 
 // Accordian js
