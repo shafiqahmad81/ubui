@@ -40,19 +40,6 @@ const observer = new IntersectionObserver(entries => {
 
 observer.observe(image);
 
-document.addEventListener("DOMContentLoaded", () => {
-  const headings = document.querySelectorAll("h2");
-
-  const observerh2 = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("reveal");
-      }
-    });
-  }, { threshold: 0.2 });
-
-  headings.forEach(h2 => observerh2.observe(h2));
-});
 
 
 // slider js
