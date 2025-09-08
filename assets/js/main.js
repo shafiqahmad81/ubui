@@ -118,34 +118,35 @@ const swiper3 = new Swiper(".slide-wrapperInitive", {
 
 
 
-document.querySelectorAll(".accordian-item").forEach(item => {
-  item.addEventListener("click", () => {
-    document.querySelectorAll(".accordian-item").forEach(i => {
-      i.classList.remove("active");
+const accordianItems = document.querySelectorAll(".accordian-item");
 
+// ডিফল্টে প্রথম item ওপেন থাকবে
+if (accordianItems.length > 0) {
+  accordianItems[0].classList.add("active");
+  const firstP = accordianItems[0].querySelector(".accordian-content p");
+  if (firstP) {
+    firstP.style.maxHeight = firstP.scrollHeight + "px";
+  }
+}
+
+accordianItems.forEach(item => {
+  item.addEventListener("click", () => {
+    accordianItems.forEach(i => {
+      i.classList.remove("active");
       const pTag = i.querySelector(".accordian-content p");
-      if (pTag) pTag.classList.remove("open"); // Smooth close
+      if (pTag) {
+        pTag.style.maxHeight = null; // smooth close
+      }
     });
 
     item.classList.add("active");
-
     const pTag = item.querySelector(".accordian-content p");
-    if (pTag) pTag.classList.add("open"); // Smooth open
+    if (pTag) {
+      pTag.style.maxHeight = pTag.scrollHeight + "px"; // smooth open
+    }
   });
 });
 
-
-document.getElementById("view-more").addEventListener("click", function () {
-  const hiddenItems = document.querySelectorAll(".event-item.hidden");
-  
-  hiddenItems.forEach(item => {
-    
-    item.classList.remove("hidden"); // hidden class remove
-    item.classList.add("show");      // show class add
-  });
-
-  this.style.display = "none"; // button hide করা
-});
 
 // filter
 

@@ -1042,11 +1042,12 @@ h5{
   margin-bottom: 12px;
 }
 
+
 .accordian-content p {
-  max-height: 0;           /* Close by default */
+  max-height: 0;
   overflow: hidden;
-  transition: max-height 0.4s ease, padding 0.4s ease;
-  padding: 0 10px;         /* optional padding */
+  transition: max-height 0.4s ease;
+  padding: 0 10px;
 }
 
 .accordian-content p.open {
