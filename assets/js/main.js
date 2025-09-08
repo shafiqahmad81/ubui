@@ -33,6 +33,7 @@ const swiper = new Swiper(".slide-wrap", {
     direction: "vertical",
     loop: true,
     spaceBetween: 20,
+    grabCursor: true,
     pagination: {
       el: ".swiper-pagination",
       clickable: true,
@@ -52,11 +53,12 @@ const swiper2 = new Swiper(".slide-wrapper", {
   direction: "horizontal",
   loop: true,
   slidesPerView: 1,
+  grabCursor: true,
   spaceBetween: 30,
-  // autoplay: {
-  //   delay: 3000,
-  //   disableOnInteraction: false,
-  // },
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false,
+  },
   pagination: {
     el: ".swiper-pagination",
     clickable: true,
@@ -67,6 +69,28 @@ const swiper2 = new Swiper(".slide-wrapper", {
     prevEl: ".swiper-button-prev",
   },
 });
+const swiper3 = new Swiper(".slide-wrapperInitive", {
+   slidesPerView: 3.3,      // 3 full + 4th partial
+  spaceBetween: 20,
+  loop: true,
+  grabCursor: true,
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false,
+
+  },
+
+  breakpoints: {
+    320: { slidesPerView: 1.2 },
+    768: { slidesPerView: 2.2 },
+    1024: { slidesPerView: 3.3 },
+  },
+
+  
+});
+
+
+
 
 
 
@@ -90,4 +114,16 @@ document.querySelectorAll(".accordian-item").forEach(item => {
       pTag.classList.remove("content-close");
     }
   });
+});
+
+document.getElementById("view-more").addEventListener("click", function () {
+  const hiddenItems = document.querySelectorAll(".event-item.hidden");
+  
+  hiddenItems.forEach(item => {
+    
+    item.classList.remove("hidden"); // hidden class remove
+    item.classList.add("show");      // show class add
+  });
+
+  this.style.display = "none"; // button hide করা
 });

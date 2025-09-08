@@ -727,6 +727,20 @@ h5{
 .our-info-content h2{
   margin-bottom: 12px;
 }
+.info-section .swiper {
+  width: 100%;
+  padding: 20px 0;
+}
+.info-section .swiper-wrapper {
+  padding-right: 40px;
+}
+.info-section .swiper-wrapper {
+  padding-left: 0;   /* বামপাশে empty রাখার জন্য */
+}
+
+.info-section .swiper-slide {
+  height: auto;
+}
 @media (max-width:768px){
   .our-info-section {
     padding-top: 30px;
@@ -1080,6 +1094,9 @@ h5{
 .about-page .image-wrap div{
     width: 100%;
   }
+  .about-page .hero-section {
+    padding-top: 30px;
+  }
 }
 /* about hero section end */
 /* adipiscing section start */
@@ -1149,6 +1166,14 @@ h5{
     padding-left: 0;
     max-width: 100%;
   }
+  .adipiscing-section {
+    padding-top: 30px;
+    padding-bottom: 60px;
+  }
+  .adipiscing-wrap {
+    margin-bottom: 30px;
+  }
+  
 }
 /* adipiscing section end */
 
@@ -1190,6 +1215,15 @@ h5{
     margin-top: 5px;
     margin-bottom: 3px;
 
+  }
+  .board-section {
+    padding-block: 30px ;
+  }
+  .board-section .title-area {
+    margin-bottom: 30px ;
+  }
+  .board-bottom {
+    margin-top: 40px;
   }
   
 }
@@ -1267,7 +1301,13 @@ h5{
   .climate h2 {
     max-width: 100%;
   }  
-
+  .our-intiatives-wrap {
+    gap: 15px;
+    margin-bottom: 40px;
+}
+  .our-intiatives-section {
+    padding-bottom: 30px;
+  }
 }
 /* our-intiatives-section end */
 
@@ -1296,7 +1336,7 @@ h5{
 
 .custom-select select {
   width: 100%;
-  padding: 8px 35px 8px 5px;
+  padding: 8px 35px 8px 0px;
   border: none;
   font-size: 16px;
   line-height: 24px;
@@ -1332,6 +1372,21 @@ h5{
 }
 .event-page .btn-wrap{
   margin-top: 60px;
+}
+.event-item.hidden {
+  display: none;
+}
+
+.event-item.show {
+  display: block;
+}
+@media (max-width:768px){
+  .event-page .btn-wrap {
+    margin-top: 20px;
+  }
+  .event-section {
+    padding-bottom: 30px;
+  }
 }
 /* her section end */
 
@@ -1505,6 +1560,10 @@ h5{
   margin-bottom: 4px;
   display: block;
 }
+.submit-wrap a{
+  color: var(--color-red);
+  text-decoration: underline;
+}
 @media(max-width:1024px){
   .get-section .contact-us {
     max-width: 100%;
@@ -1518,6 +1577,35 @@ h5{
   .get-section .contact-wrap {
       margin-top: 30px;
     }
+  .contact-page .contact-section {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  .get-section {
+    padding-top: 30px;
+  }
+  .contact-page .contact-form {
+    padding: 20px;
+  }
+  .contact-page .form-wrap {
+    gap: 20px;
+  }
+  .contact-page .contact-maile {
+    gap: 20px;
+  }
+  .contact-page .form-wrap textarea {
+    min-height: 120px;
+  }
+  .contact-page .contact-form input,
+  .contact-page .form-wrap textarea {
+    font-size: 13px;
+    line-height: 16.4px;
+  }
+  .contact-page .custom-select select {
+    font-size: 14px;
+    line-height: 16.4px;
+    font-weight: 500;
+  }
 }
 /* get-section end */
 
