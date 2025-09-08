@@ -1081,6 +1081,9 @@ h5{
   gap: 28px;
   justify-content: space-between;
 }
+.about-page .join-section {
+    margin-top: 0;
+}
 
 @media(max-width:768px){
 .hero-content-area {
