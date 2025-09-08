@@ -62,7 +62,7 @@ const swiper2 = new Swiper(".slide-wrapper", {
   pagination: {
     el: ".swiper-pagination",
     clickable: true,
-    type: "bullets", // Up top indicator
+    type: "bullets", 
   },
   navigation: {
     nextEl: ".swiper-button-next",
@@ -70,7 +70,7 @@ const swiper2 = new Swiper(".slide-wrapper", {
   },
 });
 const swiper3 = new Swiper(".slide-wrapperInitive", {
-   slidesPerView: 3.3,      // 3 full + 4th partial
+   slidesPerView: 3.3,      
   spaceBetween: 20,
   loop: true,
   grabCursor: true,
@@ -91,36 +91,8 @@ const swiper3 = new Swiper(".slide-wrapperInitive", {
 
 
 
-
-
-
-
-// Accordian js
-// document.querySelectorAll(".accordian-item").forEach(item => {
-//   item.addEventListener("click", () => {
-//     document.querySelectorAll(".accordian-item").forEach(i => {
-//       i.classList.remove("active");
-
-//       const pTag = i.querySelector(".accordian-content p");
-//       if (pTag && !pTag.classList.contains("content-close")) {
-//         pTag.classList.add("content-close");
-//       }
-//     });
-
-//     item.classList.add("active");
-
-//     const pTag = item.querySelector(".accordian-content p");
-//     if (pTag && pTag.classList.contains("content-close")) {
-//       pTag.classList.remove("content-close");
-//     }
-//   });
-// });
-
-
-
 const accordianItems = document.querySelectorAll(".accordian-item");
 
-// ডিফল্টে প্রথম item ওপেন থাকবে
 if (accordianItems.length > 0) {
   accordianItems[0].classList.add("active");
   const firstP = accordianItems[0].querySelector(".accordian-content p");
@@ -135,14 +107,14 @@ accordianItems.forEach(item => {
       i.classList.remove("active");
       const pTag = i.querySelector(".accordian-content p");
       if (pTag) {
-        pTag.style.maxHeight = null; // smooth close
+        pTag.style.maxHeight = null; 
       }
     });
 
     item.classList.add("active");
     const pTag = item.querySelector(".accordian-content p");
     if (pTag) {
-      pTag.style.maxHeight = pTag.scrollHeight + "px"; // smooth open
+      pTag.style.maxHeight = pTag.scrollHeight + "px";
     }
   });
 });
