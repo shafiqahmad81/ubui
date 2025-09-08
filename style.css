@@ -318,7 +318,7 @@ h5{
   }
   .menu-wrap {
     position: absolute;
-    top: 67px;
+    top: 63px;
     left: -9999px;
     width: 100%;
     height: 100vh;
@@ -451,6 +451,7 @@ h5{
   .hero-section .swiper-button-prev::after {
     display: none;
   }
+
 
 @media(max-width:768px){
   .hero-section .hero-wrap {
@@ -602,10 +603,24 @@ h5{
   padding-top: 60px;
   padding-bottom: 60px;
 }
+#image-section img {
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+#image-section img.visible {
+  opacity: 1;
+  transform: scale(1);
+}
 @media(max-width:1024px){
   .img-section {
     padding-top: 0px;
     padding-bottom: 0px;
+  }
+  .initiatives-page .img-section {
+    padding-top: 30px;
+    padding-bottom: 30px;
   }
 }
 /* img section end */
@@ -702,7 +717,7 @@ h5{
     gap: 20px;
   }
 }
-@media(max-width:768px){
+@media(max-width:548px){
   .vision-bottom {
     background-image: url(./assets/img/vision-bg.png);
     background-position: top;
@@ -710,6 +725,9 @@ h5{
     padding: 40px 20px 20px;
     border-radius: 24px;
   }
+}
+@media(max-width:768px){
+  
   .mission-vision-left {
     flex-direction: column;
   }
