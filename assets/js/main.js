@@ -96,25 +96,44 @@ const swiper3 = new Swiper(".slide-wrapperInitive", {
 
 
 // Accordian js
+// document.querySelectorAll(".accordian-item").forEach(item => {
+//   item.addEventListener("click", () => {
+//     document.querySelectorAll(".accordian-item").forEach(i => {
+//       i.classList.remove("active");
+
+//       const pTag = i.querySelector(".accordian-content p");
+//       if (pTag && !pTag.classList.contains("content-close")) {
+//         pTag.classList.add("content-close");
+//       }
+//     });
+
+//     item.classList.add("active");
+
+//     const pTag = item.querySelector(".accordian-content p");
+//     if (pTag && pTag.classList.contains("content-close")) {
+//       pTag.classList.remove("content-close");
+//     }
+//   });
+// });
+
+
+
 document.querySelectorAll(".accordian-item").forEach(item => {
   item.addEventListener("click", () => {
     document.querySelectorAll(".accordian-item").forEach(i => {
       i.classList.remove("active");
 
       const pTag = i.querySelector(".accordian-content p");
-      if (pTag && !pTag.classList.contains("content-close")) {
-        pTag.classList.add("content-close");
-      }
+      if (pTag) pTag.classList.remove("open"); // Smooth close
     });
 
     item.classList.add("active");
 
     const pTag = item.querySelector(".accordian-content p");
-    if (pTag && pTag.classList.contains("content-close")) {
-      pTag.classList.remove("content-close");
-    }
+    if (pTag) pTag.classList.add("open"); // Smooth open
   });
 });
+
 
 document.getElementById("view-more").addEventListener("click", function () {
   const hiddenItems = document.querySelectorAll(".event-item.hidden");
@@ -127,3 +146,45 @@ document.getElementById("view-more").addEventListener("click", function () {
 
   this.style.display = "none"; // button hide করা
 });
+
+// filter
+
+const filters = document.querySelectorAll('.filter-row select');
+  const events = document.querySelectorAll('.event-item');
+
+  filters.forEach(filter => {
+    filter.addEventListener('change', () => {
+      const selectedValues = Array.from(filters).map(f => f.value);
+
+      events.forEach(event => {
+        const eventType = event.querySelector('.event-btn').textContent.trim();
+        const eventLocation = event.querySelectorAll('.event-info-item p')[1].textContent.trim();
+        const eventDate = event.querySelectorAll('.event-info-item p')[0].textContent.trim();
+
+        let show = true;
+
+        // Recent/Oldest filter (এখানে শুধু ধরছি Recent = show all)
+        if(selectedValues[0] === "Oldest") {
+          // Example: শুধু Date অনুযায়ী filter করতে চাইলে এখানে logic দিবে
+          // show = someCondition;
+        }
+
+        // Location filter
+        if(selectedValues[1] !== "Location" && selectedValues[1] !== eventLocation) {
+          show = false;
+        }
+
+        // Event Type filter
+        if(selectedValues[2] !== "Event Type" && selectedValues[2] !== eventType) {
+          show = false;
+        }
+
+        // Date filter
+        if(selectedValues[3] !== "Date" && !eventDate.includes(selectedValues[3])) {
+          show = false;
+        }
+
+        event.style.display = show ? "block" : "none";
+      });
+    });
+  });
